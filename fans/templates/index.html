@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Fan</title>
+  <link rel="stylesheet" href="/fan-static/style.css">
+</head>
+<body>
+  <main class="card {% if state.is_on %}card-on{% else %}card-off{% endif %}">
+    <p class="eyebrow">SMART ENV</p>
+
+    <h1>Fan Control</h1>
+
+    <section class="device-card">
+      <h2>{{ state.name }}</h2>
+
+      {% if state.is_on %}
+        <p class="status on">🌀 ON</p>
+      {% else %}
+        <p class="status off">⏸ OFF</p>
+      {% endif %}
+    </section>
+
+    <div class="buttons">
+      <form method="post" action="/fan/on-timer">
+        <button type="submit" class="primary">
+          🌀 Turn On for {{ timer_minutes }} min
+        </button>
+      </form>
+
+      <form method="post" action="/fan/off">
+        <button type="submit" class="secondary">
+          Turn Off
+        </button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Env</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/candle-static/style.css">
 </head>
 <body>
   <main class="card {% if state.is_on %}card-on{% else %}card-off{% endif %}">
@@ -23,13 +23,13 @@
     </section>
 
     <div class="buttons">
-        <form method="post" action="/on-timer">
+        <form method="post" action="/candle-warmer/on-timer">
             <button type="submit" class="primary">
                 Turn On ({{ timer_minutes }} min)
             </button>
         </form>
 
-        <form method="post" action="/off">
+        <form method="post" action="/candle-warmer/off">
             <button type="submit" class="secondary">Turn Off</button>
         </form>
     </div>
